@@ -24,7 +24,7 @@ Sur Windows, ces installations nécessitent d'utiliser PowerShell en tant qu'adm
 * Enfin renommez le fichier .env-example en  fichier .env et remplissez correctement les différentes variables.
 
 
-Vous pouvez maintenant vous rendre à l'adresse suivante : [Lien](http://localhost:4200"SO PEKOCKO").
+Vous pouvez maintenant vous rendre à l'adresse suivante : [Lien](http://localhost:4200).
 
 
 
