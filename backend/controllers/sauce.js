@@ -2,7 +2,7 @@ const Sauce = require('../models/Sauce');
 const fs = require('fs');
 
 exports.createSauce = (req, res, next) => {
-
+    console.log(req.session);
     const sauceObject = JSON.parse(req.body.sauce); // USABLE JAVASCRIPT OBJECT
     // DELETE ID FROM FRONTEND
     delete sauceObject._id;

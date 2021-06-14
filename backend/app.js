@@ -11,6 +11,7 @@ const rateLimit = require("express-rate-limit");
 
 
 
+
 // CONNECT TO DATABASE
 
 mongoose.connect(`mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}@cluster0.oesxt.mongodb.net/dataBaseProjet6?retryWrites=true&w=majority`,
@@ -20,8 +21,6 @@ mongoose.connect(`mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD
   .catch(() => console.log('Connexion à MongoDB échouée !'));
 
 const app = express();
-
-
 
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
@@ -39,7 +38,9 @@ app.use(express.urlencoded());
 app.use(express.json());
 app.use(cookieParser());
 
-const IN_PROD = process.env.NODE_ENV === 'production';
+
+
+//const IN_PROD = process.env.NODE_ENV === 'production';
 
 app.use(session({
   name : process.env.NAME_SESSION,
@@ -49,7 +50,7 @@ app.use(session({
   cookie: { 
     maxAge : 1000 * 60 * 60 * 2,
     sameSite: true,
-    secure: IN_PROD
+     
   }
 })
 );
