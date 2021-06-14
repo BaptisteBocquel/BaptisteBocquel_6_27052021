@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
@@ -8,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const filter = require('content-filter');
 const rateLimit = require("express-rate-limit");
 
-require('dotenv').config();
+
 
 // CONNECT TO DATABASE
 
@@ -41,16 +42,16 @@ app.use(cookieParser());
 const IN_PROD = process.env.NODE_ENV === 'production';
 
 app.use(session({
-    name : process.env.NAME_SESSION,
-    secret: process.env.PASSWORD_SESSION,
-    resave: true,
-    saveUninitialized: true,
-    cookie: { 
-      maxAge : 1000 * 60 * 60 * 2,
-      sameSite: true,
-      secure: IN_PROD,
-    }
-  })
+  name : process.env.NAME_SESSION,
+  secret: process.env.PASSWORD_SESSION,
+  resave: true,
+  saveUninitialized: true,
+  cookie: { 
+    maxAge : 1000 * 60 * 60 * 2,
+    sameSite: true,
+    secure: IN_PROD
+  }
+})
 );
 
 // SET EXPRESS-RATE-LIMIT (5 ATTEMPTS ALL 15 MINUTES)
