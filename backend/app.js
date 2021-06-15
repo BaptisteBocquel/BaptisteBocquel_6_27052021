@@ -50,16 +50,15 @@ app.use(session({
   cookie: { 
     maxAge : 1000 * 60 * 60 * 2,
     sameSite: true,
-     
   }
 })
 );
 
-// SET EXPRESS-RATE-LIMIT (5 ATTEMPTS ALL 15 MINUTES)
+// SET EXPRESS-RATE-LIMIT (15 ATTEMPTS ALL 15 MINUTES)
 
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 30
+  max: 15
 });
 
 app.use(limiter);
